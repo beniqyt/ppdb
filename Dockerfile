@@ -4,6 +4,4 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 COPY . /var/www/html/
 
-RUN apachectl -M
-
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+CMD apachectl -M && sleep 300
