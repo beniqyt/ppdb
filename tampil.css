@@ -1,0 +1,233 @@
+/* =========================
+   HALAMAN DATA PENDAFTAR PPDB
+========================= */
+
+body{
+    background: linear-gradient(135deg,#c942e7,#3572db);
+}
+
+.container.py-5{
+    max-width: 98%;
+    padding-top: 25px !important;
+}
+
+
+/* ================= SEARCH ================= */
+
+form.d-flex{
+    display: flex;
+    gap: 10px;
+}
+
+form.d-flex input{
+    width: 280px;
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #096bff;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+form.d-flex input:focus{
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+}
+
+form.d-flex .btn{
+    height: 45px;
+    border-radius: 8px;
+    padding: 0 20px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+form.d-flex .btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ================= JUDUL ================= */
+
+h2{
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+}
+
+/* ================= BUTTON CARI ================= */
+
+.btn.btn-primary {
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 600;
+    background: rgb(16, 53, 240) !important;
+    border: none;
+}
+
+
+/* ================= CARD ================= */
+
+.card{
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* ================= TABLE ================= */
+
+.table-responsive{
+    overflow-x: auto;
+}
+
+/* TABLE UTAMA */
+.table{
+    width: 100%;
+    min-width: max-content;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+
+    table-layout: auto;
+}
+
+/* ================= HEADER ================= */
+
+.table thead th{
+    position: sticky;
+    top: 0;
+    z-index: 5;
+
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    color: #ffffff;
+
+    padding: 16px 10px;
+    font-size: 14px;
+    font-weight: 600;
+
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ================= BODY ================= */
+
+.table tbody td{
+    padding: 14px 12px;
+    text-align: center;
+    vertical-align: middle;
+
+    font-size: 14px;
+    color: #374151;
+
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.table td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ================= ROW EFFECT ================= */
+
+.table tbody tr{
+    transition: all 0.25s ease;
+}
+
+.table tbody tr:nth-child(even){
+    background: #f9fafb;
+}
+
+.table tbody tr:hover{
+    background: #eef4ff;
+}
+
+/* ================= KOLOM SIZE ================= */
+
+.table th:nth-child(1),
+.table td:nth-child(1){ width: 60px; }
+
+.table th:nth-child(2),
+.table td:nth-child(2){ width: 140px; }
+
+.table th:nth-child(3),
+.table td:nth-child(3){ min-width: 300px; }
+
+.table th:nth-child(4),
+.table td:nth-child(4){ width: 130px; }
+
+.table th:nth-child(5),
+.table td:nth-child(5){ width: 130px; }
+
+.table th:nth-child(6),
+.table td:nth-child(6){ width: 130px; }
+
+.table th:nth-child(7),
+.table td:nth-child(7){ width: 130px; }
+
+.table th:nth-child(8),
+.table td:nth-child(8){ width: 300px; }
+
+.table th:nth-child(9),
+.table td:nth-child(9){ width: 85px; }
+
+.table th:nth-child(10),
+.table td:nth-child(10){ width: 90px; }
+
+.table th:nth-child(11),
+.table td:nth-child(11){ width: 700px; }
+
+.table th:nth-child(12),
+.table td:nth-child(12){ width: 200px; }
+
+.table th:nth-child(13),
+.table td:nth-child(13){ width: 300px; }
+
+/* ================= SCROLLBAR ================= */
+
+.table-responsive::-webkit-scrollbar{
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track{
+    background: #e5e7eb;
+    border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb{
+    background: #000000;
+    border-radius: 10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+    h2{
+        font-size: 26px;
+    }
+
+    .d-flex.justify-content-between.mb-3{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form.d-flex{
+        width: 100%;
+    }
+
+    form.d-flex input{
+        width: 100%;
+    }
+
+    a.btn.btn-primary{
+        width: 100%;
+        text-align: center;
+    }
+}

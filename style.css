@@ -1,0 +1,1167 @@
+/* --- Variabel & Reset --- */
+:root {
+    --primary-blue: #1963da; /* Navbar atas */
+    --light-bg: #F8FBFF;
+    --text-dark: #1E293B;
+    --text-muted: #64748B;
+    --border-color: #E2E8F0;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* --- Header & Nav --- */
+header {
+    background-color: var(--primary-blue); /* --- Navbar Atas --- */
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+/* Container logo SMK dan SMA */
+.logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+/* Tulisan Yayasan */
+.logo-text{
+    text-align:center;
+    font-weight:700;
+}
+
+/* LOGO SMK */
+.logo-img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-top: 10px;
+}
+
+
+/* LOGO SMA */
+.logo-sma{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* button daftar */
+.btn-primary {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #1d7fdb; /* Biru button daftar sekarang*/
+    color: rgb(255, 255, 255);
+}
+
+.btn-primary:hover {
+    background-color: #0868c9;
+    color: #fff;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
+/* --- Hero Section / Banner Utama --- */
+.hero {
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.45)
+        ),
+        url('img/halaman_web.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    text-align: center;
+    padding: 120px 20px 80px;
+
+    min-height: 100vh;
+}
+
+/* --- Tittle PSB --- */
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+.hero p {
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.hero-buttons a {
+    min-width: 220px;
+    text-align: center;
+    padding: 12px 20px;
+}
+
+/* --- Button Lihat Data --- */
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn-lihat-data{
+    display:inline-block;
+    padding:12px 30px;
+    background:#0772ec;
+    color:#fff;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-lihat-data:hover{
+    color:#fff;
+    transform:translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
+/* --- Garis Pada Button Pengumuman --- */
+.btn-outline {
+    border: 1px solid rgb(255, 255, 255);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: #0772ec;
+    border-color: #0772ec;
+    color: #fff;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
+/* --- Garis --- */
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    border-top: 1px solid rgba(221, 31, 31, 0.1);
+    padding-top: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-item h3 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* --- Tittle Di Setiap Fitur Kecuali kontak --- */
+section:not(.hero) {
+    padding: 80px 10%;
+}
+
+.section-header {
+    margin-bottom: 40px;
+}
+
+.subtitle {
+    color: #3B82F6;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-top: 5px;
+}
+
+/* --- Fitur Kgiatan dan Fasilitas / Shadow Di card kegiatan dan fasilitas --- */
+.features-grid, .majors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.feature-card, .major-card, .activity-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px;
+    background: var(--white);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover, .major-card:hover, .activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(18, 101, 234, 0.906);
+}
+.card-number {
+    background: var(--light-bg);
+    color: var(--primary-blue);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.feature-card h4, .major-card h4 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.feature-card p, .major-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* GAMBAR FASILITAS */
+.feature-image{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    display: block;
+}
+
+/* CARD FITUR */
+.feature-card {
+    overflow: hidden;
+}
+
+.feature-card:hover .feature-image {
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+
+/* --- Langkah Pendaftaran --- */
+.steps-section {
+    background-color: var(--light-bg);
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    text-align: center;
+    gap: 10px;
+}
+
+.step-item {
+    flex: 1;
+    min-width: 120px;
+}
+
+.step-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+.step-arrow {
+    color: #000000;
+    font-size: 30px;
+}
+
+.step-item h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.step-item p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* LOGO JURUSAN */
+.major-logo{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 20px;
+
+    padding: 8px;
+    background: #f8fafc;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+
+    transition: .3s;
+}
+
+.major-card{
+    text-align: center;
+    position: relative;
+    min-height: 290px;
+}
+
+.major-card:hover .major-logo{
+    transform: scale(1.05);
+}
+
+/* ================= JURUSAN ================= */
+
+.majors-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.major-card{
+    position: relative;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    min-height: 320px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    transition: .3s;
+}
+
+.major-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(27, 94, 240, 0.776);
+}
+
+.major-logo{
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+
+    border-radius: 50%;
+    background: #f8fafc;
+
+    padding: 10px;
+    margin-bottom: 20px;
+
+    border: 2px solid #e2e8f0;
+}
+
+.major-card h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.major-card p{
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.tag{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+
+    padding: 6px 12px;
+
+    border-radius: 6px;
+
+    background: #DBEAFE;
+    color: #1E40AF;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.tag.green{
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.tag.sma{
+    background: #fce7f3;
+    color: #be185d;
+}
+
+.center-btn {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* --- Kegiatan Sekolah --- */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+/* GAMBAR KEGIATAN */
+.activity-image{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    display: block;
+}
+
+.activity-card{
+    overflow: hidden;
+}
+
+.activity-card:hover .activity-image{
+    transform: scale(1.03);
+}
+
+/* --- Form Kontak & PPDB --- */
+.contact-section {
+    background: var(--light-bg);
+}
+.contact-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/* --- GPS --- */
+.contact-map{
+    flex: 1;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-map iframe{
+    width: 100%;
+    height: 350px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(90, 87, 87, 0.15);
+}
+
+.contact-info ul {
+    list-style: none;
+    margin-top: 20px;
+}
+.contact-info li {
+    margin-bottom: 15px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.contact-info i {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+}
+
+/* =========================
+   POPUP IKLAN PPDB
+========================= */
+
+.popup-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.75);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    animation: fadeIn 0.4s ease;
+}
+
+.carousel-item img{
+    width:100%;
+    height:auto;
+    border-radius:18px;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    width:50px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    background-color: rgba(0,0,0,0.4);
+    border-radius:50%;
+    padding:20px;
+}
+
+.carousel-control-prev{
+    left: 10px;
+}
+
+.carousel-control-next{
+    right: 10px;
+}
+
+/* --- Mengatur Letak Panah --- */
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+/* BOX POPUP */
+.popup-content{
+    position: relative;
+    width: 90%;
+    max-width: 360px;
+}
+
+/* GAMBAR */
+.popup-content img{
+    width: 100%;
+    border-radius: 18px;
+    display: block;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+}
+
+/* TOMBOL CLOSE */
+.close-popup{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 35px;
+    height: 35px;
+
+    background: white;
+    color: black;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 99999;
+}
+
+.close-popup:hover{
+    transform: scale(1.1);
+}
+
+/* =========================
+   PIMPINAN SEKOLAH
+========================= */
+
+.leadership-section{
+    padding: 80px 20px;
+    background: #f4f7fb;
+}
+
+.section-header{
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.section-header .subtitle{
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.section-header h2{
+    font-size: 38px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 10px;
+}
+
+.leadership-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.leader-card{
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    border: 2px solid #e5e7eb;
+    transition: all .3s ease;
+}
+
+.leader-card:hover{
+    border-color: #2563eb;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(37,99,235,.25);
+}
+
+.leader-card img{
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #2563eb;
+    margin-bottom: 20px;
+}
+
+.leader-card h4{
+    color: #2563eb;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.leader-card p{
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ========================= */
+/* VISI & MISI */
+/* ========================= */
+
+.visi-misi-section{
+    background: #f8fbff;
+}
+
+.visi-misi-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.visi-card,
+.misi-card{
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(18, 73, 213, 0.219);
+
+    transition: .3s;
+}
+
+.visi-card:hover,
+.misi-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(25,99,218,.15);
+}
+
+.visi-icon{
+    width: 70px;
+    height: 70px;
+
+    background: #1963da;
+
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+.visi-card h3,
+.misi-card h3{
+    color: #1963da;
+    margin-bottom: 15px;
+}
+
+.visi-card p{
+    color: #64748b;
+    line-height: 1.8;
+}
+
+.misi-card ul{
+    padding-left: 20px;
+}
+
+.misi-card li{
+    margin-bottom: 10px;
+    color: #64748b;
+}
+
+/* Prestasi Alumni */
+.alumni-section{
+    padding: 80px 20px;
+    background: #ffffff;
+}
+
+.alumni-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.alumni-card{
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.719);
+    transition: 0.3s;
+}
+
+.alumni-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(37, 100, 235, 0.916);
+}
+
+.alumni-card img{
+    width: 100%;
+    max-width: 250px;   /* batasi ukuran */
+    height: 350px;      /* tinggi foto */
+    object-fit: cover;  /* agar proporsional */
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.alumni-card h4{
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.alumni-card .kampus{
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.alumni-card span{
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* BKK */
+.bkk-section{
+    padding: 80px 20px;
+    background: #f8fafc;
+}
+
+.bkk-card{
+    max-width: 1100px;
+    margin: auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border: 1px solid #e5e7eb;
+    transition: .3s;
+}
+
+.bkk-card:hover{
+    box-shadow: 0 10px 25px rgba(37, 100, 235, 0.916);
+}
+
+.bkk-logo img{
+    width: 250px;
+}
+
+.bkk-content h3{
+    color: #2563eb;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.bkk-content p{
+    line-height: 1.8;
+    color: #475569;
+}
+
+.bkk-content ul{
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.bkk-content li{
+    margin-bottom: 8px;
+}
+
+/* =========================
+   MEDIA SOSIAL
+========================= */
+
+.social-section{
+    padding: 70px 20px;
+    text-align: center;
+    background: #f8fafc;
+}
+
+.social-icons{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social:hover{
+    transform: translateY(-6px) scale(1.08);
+}
+
+/* Warna asli aplikasi */
+.instagram{
+    background: linear-gradient(
+        45deg,
+        #f58529,
+        #dd2a7b,
+        #8134af,
+        #515bd4
+    );
+}
+
+.facebook{
+    background: #1877F2;
+}
+
+.tiktok{
+    background: #000000;
+}
+
+.youtube{
+    background: #FF0000;
+}
+
+/* ANIMASI */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn{
+    from{
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+@media (max-width: 768px){
+
+    /* Popup */
+    .popup-content{
+        width: 80%;
+        max-width: 260px;
+    }
+
+    .close-popup{
+        width: 38px;
+        height: 38px;
+        font-size: 24px;
+    }
+
+    /* Pimpinan Sekolah */
+    .leadership-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .section-header{
+        text-align: center;
+    }
+
+    .section-header h2{
+        font-size: 28px;
+    }
+
+    /* Header */
+    header{
+        flex-direction: column;
+        gap: 15px;
+        padding: 12px 4%;
+    }
+
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .right-header{
+        margin-top: 10px;
+    }
+
+    /* Logo */
+    .logo{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo-img{
+        width: 55px;
+        height: 55px;
+    }
+
+    .logo-sma{
+        width: 45px;
+        height: 45px;
+    }
+
+    .logo span{
+        font-size: 15px;
+    }
+
+    /* Hero */
+    .hero h1{
+        font-size: 2rem;
+    }
+
+/* Statistik Mobile (Tullisan 7 Fasilitas dll*/
+.stats-container{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:20px;
+    width:100%;
+    max-width:350px;
+    margin:auto;
+}
+
+.stat-item{
+    text-align:center;
+}
+
+.stat-item h3{
+    font-size:40px;
+    margin-bottom:5px;
+}
+
+.stat-item p{
+    font-size:15px;
+    line-height:1.4;
+}
+.stat-item:last-child{
+    grid-column:1 / span 2;
+}
+
+    /* Alur Pendaftaran */
+    .steps-container{
+        flex-direction: column;
+    }
+
+    .step-arrow{
+        transform: rotate(90deg);
+        margin: 10px 0;
+    }
+
+    /* Kontak */
+    .contact-container{
+        flex-direction: column;
+    }
+
+    /* Alumni */
+    .alumni-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .alumni-card{
+        max-width: 320px;
+        margin: auto;
+    }
+
+    .alumni-card img{
+        width: 120px;
+        height: 120px;
+    }
+
+    .alumni-card h4{
+        font-size: 20px;
+    }
+    .bkk-card{
+    flex-direction: column;
+    text-align: center;
+    }
+    .bkk-logo img{
+    width: 180px;
+    }
+    .social-icons{
+    gap: 15px;
+    }
+    .social{
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+    }
+    /* Tombol Daftar */
+    .hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+/* Tombol Daftar & Pengumuman sejajar */
+.btn-primary,
+.btn-outline{
+    flex:1 1 45%;
+    max-width:220px;
+    text-align:center;
+}
+
+/* Tombol Lihat Data turun ke bawah */
+.btn-lihat-data{
+    flex:0 0 100%;
+    max-width:280px;
+    margin:10px auto 0;
+    text-align:center;
+}
+
+    .majors-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .major-card{
+        min-height: auto;
+        padding: 25px 20px 60px;
+    }
+
+    .major-logo{
+        width: 75px;
+        height: 75px;
+    }
+
+    .major-card h4{
+        font-size: 18px;
+    }
+    .visi-misi-container{
+    grid-template-columns: 1fr;
+}
+
+}
