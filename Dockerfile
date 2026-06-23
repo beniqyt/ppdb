@@ -1,6 +1,9 @@
-FROM php:8.2-apache
+FROM php:8.2-cli
 
-RUN rm -f /etc/apache2/mods-enabled/mpm_event.load \
-    && rm -f /etc/apache2/mods-enabled/mpm_event.conf
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-CMD ls -lah /etc/apache2/mods-enabled && sleep 600
+WORKDIR /app
+
+COPY . .
+
+CMD php -S 0.0.0.0:${PORT:-8080}
