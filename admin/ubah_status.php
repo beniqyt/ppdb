@@ -9,23 +9,17 @@ require '../PHPMailer/SMTP.php';
 
 include '../koneksi.php';
 
-session_start();
-
-$id     = $_GET['id'];
+$id = $_GET['id'];
 $status = $_GET['status'];
 
-// Update status pendaftar
-mysqli_query($conn, "
-UPDATE pendaftaran
+mysqli_query($conn,
+"UPDATE pendaftaran
 SET status='$status'
-WHERE id_pendaftaran='$id'
-");
+WHERE id_pendaftaran='$id'");
 
-// Ambil data pendaftar
-$data = mysqli_query($conn, "
-SELECT * FROM pendaftaran
-WHERE id_pendaftaran='$id'
-");
+$data = mysqli_query($conn,
+"SELECT * FROM pendaftaran
+WHERE id_pendaftaran='$id'");
 
 $d = mysqli_fetch_assoc($data);
 
@@ -33,98 +27,80 @@ $mail = new PHPMailer(true);
 
 try {
 
-    // Debug SMTP (sementara)
-    $mail->SMTPDebug = 2;
-
-    // Konfigurasi SMTP Gmail
+    // SMTP
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
+
+    // EMAIL GMAIL KAMU
     $mail->Username   = 'ramdhanalfatah@gmail.com';
-    $mail->Password   = 'ntmbrgtwcncyvqgp'; // tanpa spasi
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+
+    // APP PASSWORD DARI GOOGLE
+    $mail->Password   = 'ntmbrgtwcncyvqgp';
+
+    $mail->SMTPSecure = 'tls';
     $mail->Port       = 587;
 
-    // Pengirim
+    // PENGIRIM
     $mail->setFrom(
         'ramdhanalfatah@gmail.com',
-        'PPDB SMK Insan Kamil Tartila'
+        'PPDB SMK Insan Kami Tartila'
     );
 
-    // Cek email tujuan
-    if (empty($d['email'])) {
-        die('Email pendaftar kosong!');
-    }
-
-    // Penerima
+    // EMAIL TUJUAN
     $mail->addAddress($d['email']);
 
-    // Format email
+    // FORMAT EMAIL
     $mail->isHTML(true);
+    $mail->SMTPDebug = 0;
 
-    $mail->Subject = 'PENGUMUMAN HASIL SELEKSI PPDB TAHUN AJARAN 2026/2027';
+    $mail->Subject = 'PENGUMUMAN HASIL SELEKSI PENERIMAAN PESERTA DIDIK BARU (PPDB) TAHUN AJARAN 2026/2027';
 
     $mail->Body = "
     <h2>Pengumuman PPDB</h2>
 
-    <p>
-    Berdasarkan hasil seleksi Penerimaan Peserta Didik Baru (PPDB)
-    Tahun Ajaran 2026/2027, peserta dengan data berikut:
-    </p>
-
-    <ul>
-        <li><b>Nama:</b> {$d['nama_lengkap']}</li>
-        <li><b>NISN:</b> {$d['nisn']}</li>
-        <li><b>Asal Sekolah:</b> {$d['asal_sekolah']}</li>
-        <li><b>Tanggal Pendaftaran:</b> " . date('d-m-Y', strtotime($d['tanggal_daftar'])) . "</li>
-    </ul>
+    <p>Berdasarkan hasil seleksi Penerimaan Peserta Didik Baru (PPDB) 
+    Tahun Ajaran 2026/2027 yang meliputi verifikasi berkas, maka peserta dengan <b>Nama:</b> <b>".$d['nama_lengkap'].", Tanggal Pendaftaran: ".date('d-m-Y', strtotime($d['tanggal_daftar'])).", Asal Sekolah: ".$d['asal_sekolah'].", Dengan Nomor NISN : ".$d['nisn']."</b></p>
 
     <p>Dinyatakan:</p>
 
-    <h1>{$status}</h1>
+    <h1>".$status."</h1>
 
-    <p>
-    Silakan membawa berkas persyaratan berikut ke sekolah:
-    </p>
-
-    <ul>
-        <li>Fotokopi Ijazah SMP/MTs</li>
-        <li>Fotokopi Rapor SMP/MTs</li>
-        <li>Fotokopi Akta Kelahiran</li>
-        <li>Fotokopi Kartu Keluarga</li>
-        <li>Pas Foto 3x4 (3 lembar)</li>
+    <br>
+    <p>Silakan membawa berkas-berkas syarat pendaftaran ke sekolah</p>
+    <ul> 
+    <li>Fotokopi ijazah SMP/MTs </li>
+    <li>Fotokopi rapor SMP/MTs </li>
+    <li>Fotokopi akte kelahiran </li>
+    <li>Fotokopi kartu keluarga </li>
+    <li>Pass foto 3x4 (3 lembar </li>
     </ul>
+    </br>
+    <p> Demikian pengumuman ini disampaikan, atas perhatiannya kami ucapkan, Terima kasih telah mendaftar.</p>
 
     <p>
-    Demikian pengumuman ini disampaikan.
-    Terima kasih telah mendaftar di SMK Insan Kamil Tartila.
+    Kepala SMK Insan Kamil Tartila
+    </p>
+
+    <p>
+    <b>Ressti Zhahara Zuleika, S.Pd
     </p>
 
     <br>
 
-    <p>Kepala SMK Insan Kamil Tartila</p>
-
-    <p><b>Ressti Zhahara Zuleika, S.Pd</b></p>
-
+    <p>Hubungi lebih lanjut 0822-4198-3346 &</P <p>0831-2738-9409</p>
+    
     <br>
 
-    <p>
-    Hubungi lebih lanjut:
-    <br>
-    0822-4198-3346
-    <br>
-    0831-2738-9409
-    </p>
     ";
 
     $mail->send();
 
-    $_SESSION['success'] = "Email berhasil dikirim";
-
 } catch (Exception $e) {
 
-    die("PHPMailer Error: " . $mail->ErrorInfo);
+    echo "Email gagal dikirim";
 }
 
-header("Location: " . $_SERVER['HTTP_REFERER']);
-exit();
+header("location:" . $_SERVER['HTTP_REFERER']);
+
+?>
