@@ -101,6 +101,7 @@ try {
     die("Email gagal dikirim: " . $mail->ErrorInfo);
 }
 
-header("location:" . $_SERVER['HTTP_REFERER']);
+header("Location: " . $_SERVER['HTTP_REFERER']);
+exit;
 
 ?>
