@@ -98,7 +98,7 @@ try {
 
 } catch (Exception $e) {
 
-    echo "Email gagal dikirim";
+    die("Email gagal dikirim: " . $mail->ErrorInfo);
 }
 
 header("location:" . $_SERVER['HTTP_REFERER']);
